@@ -34,7 +34,6 @@ router.post('/', passport.authenticate('jwt',{session:false}), (req,res)=> {
 
     newPost.save().then(post => res.json(post));
 });
-
 // @route   Get api/posts
 // @desc    Get all posts
 // @access   Public

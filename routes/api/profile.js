@@ -278,8 +278,8 @@ router.delete(
         Profile.findOneAndRemove({user: req.user.id})
             .then(() => {
                 User.findOneAndRemove({_id:req.user.id})
-                })
-            .then( () => res.json({success:"true"}))
+                .then( () => res.json({success:"true"}))}
+            )
     });
 
 module.exports = router;

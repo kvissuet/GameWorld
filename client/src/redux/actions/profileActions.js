@@ -1,12 +1,11 @@
 import axios from 'axios';
-import jwt_decode from "jwt-decode"
+
 
 import {
     GET_PROFILE,
     GET_ERRORS,
     PROFILE_LOADING,
     CLEAR_CURRENT_PROFILE,
-    DELETE_ACCOUNT,
     SET_CURRENT_USER,
     GET_PROFILES
 } from "./types";

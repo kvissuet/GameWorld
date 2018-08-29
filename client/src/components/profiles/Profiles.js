@@ -14,7 +14,7 @@ class Profiles extends React.Component {
         let profileItems;
 
         if(profiles === null || loading){
-            <h1> Loading... </h1>
+            profileItems = <h1> Loading... </h1>
         } else {
             if(profiles.length > 0){
                 profileItems = <div> {profiles.map( profile => <ProfileItem profile={profile}/>)} </div>

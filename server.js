@@ -23,7 +23,7 @@ mongoose
   .then(() => console.log("Mongodb connected"))
   .catch(err => console.log(err));
 
-app.get('/', (req,res) => res.send("Hello World!") );
+app.get('/helloworld', (req,res) => res.send("Hello World!") );
 
 // Passport Middleware
 app.use(passport.initialize());

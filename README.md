@@ -1,6 +1,8 @@
 **GameWorld**
 
-This project is here to showcase my javascript full stack skill set.
+This project is here to showcase my javascript full stack skill set. 
+
+Stack: React.JS, Redux, Node.JS, Express.JS, MongoDB
 
 My goal is to make a website where people can play games against AI that I'm developing using ML techniques.
 

@@ -59,6 +59,8 @@ class Navbar extends React.Component {
                                 <Link className="nav-link" to="/profiles"> Users
                                 </Link>
                             </li>
+                            <Link className="nav-link" to="/feed"> Forum
+                            </Link>
                         </ul>
 
 

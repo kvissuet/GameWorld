@@ -43,30 +43,40 @@ class PostItem extends React.Component {
 
                         <h4> {post.title} </h4>
                         <p className="lead">{post.text}</p>
-                        {this.props.auth.user.id &&<button type="button" className="btn btn-light mr-1" onClick={this.onLikeClick}>
+
+
+                        {this.props.showActions &&
+                        <div>
+                        {this.props.auth.user.id && this.props.post.likes && <button type="button" className="btn btn-light mr-1" onClick={this.onLikeClick}>
                             <i className={classnames(" fas fa-thumbs-up", {
                                 'text-info': this.userLiked(),
-                                'text-warning': !this.userLiked()
-                            })}
-                            ></i>
+                                'text-warning': !this.userLiked()})}
+                            > {null} </i>
                             <span className="badge badge-light">{post.likes.length}</span>
                         </button>}
                         {/*<button type="button" className="btn btn-light mr-1">*/}
                             {/*<i className="text-secondary fas fa-thumbs-down"></i>*/}
                         {/*</button>*/}
-                        <Link to={"/post/"+post._id} className="btn btn-info mr-1">
+                        <Link to={"/posts/"+post._id} className="btn btn-info mr-1">
                             Comments
                         </Link>
                         {post.user === auth.user.id &&
                         <button type="button" class="btn btn-danger mr-1" onClick={this.onDeleteClick}>
                             <i class="fas fa-times" />
                         </button> }
+                        </div>}
+
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+PostItem.defaultProps = {
+    showActions: true
+}
+
 
 PostItem.propTypes = {
     post:PropTypes.object.isRequired,

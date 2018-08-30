@@ -1,14 +1,15 @@
 import axios from 'axios';
 
 import {
-    ADD_POST, DELETE_POST,
-    GET_ERRORS,
+    ADD_POST,  DELETE_POST,
+    GET_ERRORS, GET_POST,
     GET_POSTS,
     POST_LOADING,
 } from "./types";
 
 // Add post
 export const addPost = postData => dispatch => {
+    dispatch(clearErrors())
     axios
         .post('/api/posts', postData)
         .then(res => dispatch({
@@ -20,6 +21,23 @@ export const addPost = postData => dispatch => {
         payload: err.response.data
         }));
 };
+
+// Add post
+export const addComment = (postData,postId) => dispatch => {
+    dispatch(clearErrors())
+    axios
+        .post('/api/posts/comment/'+postId, postData)
+        .then(res => dispatch({
+            type:GET_POST,
+            payload: res.data
+        }))
+        .catch(err => dispatch({
+            type:GET_ERRORS,
+            payload: err.response.data
+        }));
+};
+
+
 
 // Get Posts
 export const getPosts = () => dispatch => {
@@ -33,6 +51,21 @@ export const getPosts = () => dispatch => {
         .catch(err => dispatch({
             type:GET_ERRORS,
             payload: err.response.data
+        }));
+};
+
+// Get Posts
+export const getPost = (id) => dispatch => {
+    dispatch(setPostLoading());
+    axios
+        .get('/api/posts/'+id)
+        .then(res => dispatch({
+            type:GET_POST,
+            payload: res.data
+        }))
+        .catch(err => dispatch({
+            type:GET_POST,
+            payload: null
         }));
 };
 
@@ -78,4 +111,26 @@ export const deletePost = id => dispatch => {
             type:GET_ERRORS,
             payload: err.response.data
         }));
+};
+
+//DeleteComment
+export const deleteComment = (postId,commentId) => dispatch => {
+    axios
+        .delete('/api/posts/'+postId+'/'+commentId)
+        .then(res => dispatch({
+            type:GET_POST,
+            payload: res.data
+        }))
+        .catch(err => dispatch({
+            type:GET_ERRORS,
+            payload: err.response.data
+        }));
+};
+
+// Set loading state
+export const clearErrors = () => dispatch => {
+        dispatch({
+                     type:GET_ERRORS,
+                     payload: {}
+})
 };

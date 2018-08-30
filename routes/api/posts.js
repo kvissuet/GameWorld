@@ -135,7 +135,7 @@ router.post('/comment/:post_id', passport.authenticate('jwt',{session:false}), (
 // @route   DELETE api/comment/:post_id/:comment_id
 // @desc    Delete comment
 // @access   Private
-router.delete('/comment/:post_id/:comment_id', passport.authenticate('jwt',{session:false}), (req,res)=> {
+router.delete('/:post_id/:comment_id', passport.authenticate('jwt',{session:false}), (req,res)=> {
     Post.findById(req.params.post_id)
         .then(post => {
 

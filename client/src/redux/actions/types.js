@@ -15,3 +15,5 @@ export const ADD_COMMENT = 'ADD_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
+
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';

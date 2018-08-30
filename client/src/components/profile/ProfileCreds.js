@@ -8,7 +8,7 @@ class ProfileCreds extends React.Component {
         const {education, experience } = this.props;
 
         const expItems = experience.map((exp,index) => (
-            <li className="list-group-item" key={index}>
+            <li className="list-group-item bg-light" key={index}>
                 <h4>{exp.company}</h4>
                 <p>
                     <Moment format={'YYYY-MM'}>
@@ -33,7 +33,7 @@ class ProfileCreds extends React.Component {
         ));
 
         const eduItems = education.map((exp,index) => (
-            <li className="list-group-item" key={index}>
+            <li className="list-group-item bg-light" key={index}>
                 <h4>{exp.school}</h4>
                 <p>
                     <Moment format={'YYYY-MM'}>

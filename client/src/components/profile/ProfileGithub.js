@@ -33,7 +33,7 @@ class ProfileGithub extends React.Component {
         const {repos} = this.state
 
         const repoItems = repos.map(repo => (
-            <div key={repo.id} className="card card-body mb-2">
+            <div key={repo.id} className="card card-body bg-light mb-2">
                 <div className="row">
                     <div className="col-md-6">
                         <h4>

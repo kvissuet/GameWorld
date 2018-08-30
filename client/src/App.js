@@ -27,6 +27,8 @@ import Profile from "./components/profile/Profile";
 import { NotFound }from "./components/not-found/NotFound";
 import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
+import Games from "./components/games/Games";
+import Cups from "./components/games/cups/Cups";
 
 
 //check for token
@@ -66,6 +68,7 @@ class App extends Component {
                       <Route exact path={'/profiles'} component={Profiles}/>
                       <Route exact path={'/profile/:handle'} component={Profile}/>
                       <Route exact path={'/feed'} component={Posts}/>
+                      <Route exact path={'/games'} component={Games}/>
 
                       <Switch>
                         <PrivateRoute exact path={'/dashboard'} component={Dashboard}/>
@@ -85,6 +88,10 @@ class App extends Component {
 
                       <Switch>
                           <PrivateRoute exact path={'/posts/:id'} component={Post}/>
+                      </Switch>
+
+                      <Switch>
+                          <PrivateRoute exact path={'/cups'} component={Cups}/>
                       </Switch>
 
                       <Route exact path={'/not-found'} component={NotFound}/>

@@ -19,14 +19,18 @@ class Navbar extends React.Component {
 
                 <li className="nav-item">
                     <Link className="nav-link" to="/dashboard"> Dashboard
+
+                        <img className={"rounded-circle"} style={{width:"25px", marginRight:"5px"}} src={user.avatar} alt={user.name}
+                             title={"You must have a Gravatar connected to your email to display an image"}/>
                     </Link>
+
+
                 </li>
 
                 <li className="nav-item">
 
                     <Link className="nav-link" to="/" onClick={this.onLogoutClick}>
-                        <img className={"rounded-circle"} style={{width:"25px", marginRight:"5px"}} src={user.avatar} alt={user.name}
-                             title={"You must have a Gravatar connected to your email to display an image"}/>
+
                         Logout
                     </Link>
                 </li>
@@ -36,6 +40,8 @@ class Navbar extends React.Component {
 
         const guestLinks =(
             <ul className="navbar-nav ml-auto">
+
+
                 <li className="nav-item">
                     <Link className="nav-link" to="/register">Sign Up</Link>
                 </li>
@@ -56,11 +62,12 @@ class Navbar extends React.Component {
                     <div className="collapse navbar-collapse" id="mobile-nav">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/profiles"> Users
-                                </Link>
+                                <Link className="nav-link" to="/games"> Games </Link>
                             </li>
-                            <Link className="nav-link" to="/feed"> Forum
-                            </Link>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/profiles"> Users </Link>
+                            </li>
+                            <Link className="nav-link" to="/feed"> Forum </Link>
                         </ul>
 
 

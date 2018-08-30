@@ -27,7 +27,7 @@ class PostItem extends React.Component {
         const { post, auth } = this.props;
 
         return (
-            <div className="card card-body mb-3">
+            <div className="card card-body bg-light mb-3">
                 <div className="row">
                     <div className="col-md-2">
                         <Link to="/profiles">
@@ -58,7 +58,7 @@ class PostItem extends React.Component {
                             {/*<i className="text-secondary fas fa-thumbs-down"></i>*/}
                         {/*</button>*/}
                         <Link to={"/posts/"+post._id} className="btn btn-info mr-1">
-                            Comments
+                            Comments: {post.comments.length}
                         </Link>
                         {post.user === auth.user.id &&
                         <button type="button" class="btn btn-danger mr-1" onClick={this.onDeleteClick}>

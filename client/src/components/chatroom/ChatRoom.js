@@ -3,20 +3,20 @@ import axios from 'axios';
 import Pusher from 'pusher-js';
 import ChatList from './ChatList';
 import ChatBox from './ChatBox';
+import {connect} from "react-redux";
+import './ChatList.css'
 
-export default class ChatRoom extends Component {
+class ChatRoom extends Component {
     constructor(props) {
         super(props);
         this.state = {
             text: '',
-            username: '',
+            username: this.props.auth.user.name,
             chats: []
         };
     }
 
     componentDidMount() {
-        const username = window.prompt('Username: ', 'Anonymous');
-        this.setState({ username });
         const pusher = new Pusher('dbe92bc6f496b1f8e3bd', {
             cluster: 'us2',
             forceTLS: true
@@ -28,13 +28,14 @@ export default class ChatRoom extends Component {
         this.handleTextChange = this.handleTextChange.bind(this);
     }
 
-    handleTextChange(e) {
+    handleTextChange = (e) => {
         if (e.keyCode === 13) {
             const payload = {
                 username: this.state.username,
                 message: this.state.text
             };
             axios.post('/message', payload);
+            this.setState({text:""})
         } else {
             this.setState({ text: e.target.value });
         }
@@ -42,20 +43,24 @@ export default class ChatRoom extends Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Welcome to React-Pusher Chat</h1>
-                </header>
-                <section>
-                    <ChatList chats={this.state.chats} />
+            <div className="chat-window">
+
+
+                <ChatList chats={this.state.chats} />
+                <div className={'chat-input'}>
                     <ChatBox
                         text={this.state.text}
                         username={this.state.username}
                         handleTextChange={this.handleTextChange}
                     />
-                </section>
+                </div>
             </div>
         );
     }
 }
 
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+});
+
+export default connect(mapStateToProps)(ChatRoom)

@@ -1,4 +1,21 @@
 .greetings {
-    margin-top: 90px;
+    margin-top: 20px;
     text-align: center;
 }
+
+.chat-window{
+    display:flex;
+    flex-direction:column;
+    height:200px;
+    width: 100%;
+}
+.chat-messages{
+    flex: 1;
+    height:100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.chat-input { border-top: 1px solid #999; padding: 20px 5px }
+.chat-input-text { width: 60%; min-height: 40px; max-width: 60%; }

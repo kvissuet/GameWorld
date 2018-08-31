@@ -1,28 +1,22 @@
 import React from "react";
 import "./ChatList.css";
 export default ({ chats }) => (
+    <div className={'chat-window'}>
+    <div className={'chat-messages'}>
     <ul>
         {chats.map(chat => {
             return (
-                <div>
-                    <div className="row show-grid">
-                        <div className="col-xs-12">
 
-                            <div className="chatMessage">
-                                <div key={chat.id} className="box">
+
+                                <div key={chat.id}>
                                     <p>
-                                        <strong>{chat.username}</strong>
+                                        <strong>{chat.username}: </strong>{chat.message}
                                     </p>
-                                    <p>{chat.message}</p>
+
                                 </div>
-                                <div className="imageHolder">
-                                    <img src={""} className="img-responsive avatar" alt="logo" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
+                           );
         })}
     </ul>
+    </div>
+    </div>
 );

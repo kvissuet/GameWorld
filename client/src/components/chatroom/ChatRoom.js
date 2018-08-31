@@ -34,7 +34,7 @@ export default class ChatRoom extends Component {
                 username: this.state.username,
                 message: this.state.text
             };
-            axios.post('http://localhost:5000/message', payload);
+            axios.post('/message', payload);
         } else {
             this.setState({ text: e.target.value });
         }

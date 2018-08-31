@@ -13,12 +13,12 @@ const CupsGameSchema = new Schema({
     },
 
     player1Currency: {
-        type: String,
-        default: "100"
+        type: Number,
+        default: 100
     },
     player2Currency: {
-        type: String,
-        default: "100"
+        type: Number,
+        default: 100
     },
 
     player1name: {
@@ -46,18 +46,16 @@ const CupsGameSchema = new Schema({
 
     history: [{
         player1move: {
-            type: String,
-            default: "Not Yet Submitted"
+            type: Number,
         },
         player2move: {
-            type: String,
-            default: "Not Yet Submitted"
+            type: Number,
         },
     }],
 
     score: {
-        type: String,
-        default: '0'
+        type: Number,
+        default: 0
     },
 
 

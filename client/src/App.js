@@ -29,7 +29,7 @@ import Posts from "./components/posts/Posts";
 import Post from "./components/post/Post";
 import Games from "./components/games/Games";
 import Cups from "./components/games/cups/Cups";
-
+import ChatRoom from "./components/chatroom/ChatRoom";
 
 //check for token
 if(localStorage.jwtToken) {
@@ -93,6 +93,11 @@ class App extends Component {
                       <Switch>
                           <PrivateRoute exact path={'/cups'} component={Cups}/>
                       </Switch>
+
+                      <Switch>
+                          <PrivateRoute exact path={'/chatroom'} component={ChatRoom}/>
+                      </Switch>
+
 
                       <Route exact path={'/not-found'} component={NotFound}/>
                   </div>

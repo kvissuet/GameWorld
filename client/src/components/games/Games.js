@@ -32,6 +32,7 @@ class Games extends React.Component {
                         {classicGames}
                     </ul>
                 </div>
+
             </div>
         )
     }

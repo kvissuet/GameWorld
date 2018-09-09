@@ -5,6 +5,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken'
 import {setCurrentUser, logoutUser} from "./redux/actions/authActions";
 import { clearCurrentProfile } from "./redux/actions/profileActions";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import store from './store'
 

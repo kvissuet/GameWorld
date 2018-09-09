@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
 const Pusher = require('pusher');
-const cors = require('cors');
 
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
@@ -14,7 +13,6 @@ const cups = require('./routes/api/cups');
 const app = express();
 
 //Body parser middleware
-app.use(cors());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
@@ -27,6 +25,8 @@ const pusher = new Pusher({
     cluster: 'us2',
     encrypted: true
 });
+
+
 
 
 
@@ -53,6 +53,13 @@ app.use('/api/profile', profile);
 app.use('/api/posts', posts);
 app.use('/api/cups', cups);
 
+//Chatroom api
+app.post('/message', (req, res) => {
+    const payload = req.body;
+    pusher.trigger('chat', 'message', payload);
+    res.send(payload)
+});
+
 //Serve static assets if in production
 if(process.env.NODE_ENV === 'production'){
     //Set static folder
@@ -63,12 +70,6 @@ if(process.env.NODE_ENV === 'production'){
     })
 }
 
-//Chatroom api
-app.post('/message', (req, res) => {
-    const payload = req.body;
-    pusher.trigger('chat', 'message', payload);
-    res.send(payload)
-});
 
 const port = process.env.PORT || 5000;
 

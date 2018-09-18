@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "Social Network for developers",
   "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run server \" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "KevinVissuet",
@@ -30,6 +33,8 @@
     "validator": "^10.6.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.3"
   }
 }

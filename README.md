@@ -12,4 +12,4 @@ The game Cups is set up in the backend and am now working on allowing people to 
 
 Games to Come: Tictactoe, Connect4
 
-Todo: Still need to add unit tests. 
+Todo: Add even more unit tests
